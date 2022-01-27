@@ -1,0 +1,13 @@
+[
+ {
+          "description": null,
+          "icmp-options": null,
+          "is-stateless": false,
+          "protocol": "all",
+          "source": "0.0.0.0/0",
+          "source-type": "CIDR_BLOCK",
+          "tcp-options": null,
+          "udp-options": null
+        }
+]
+
