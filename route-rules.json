@@ -1,0 +1,10 @@
+[
+  {
+    "cidr-block": null,
+     "description": null,
+     "destination": "0.0.0.0/0",
+     "destination-type": "CIDR_BLOCK",
+     "network-entity-id": "ocid1.internetgateway.oc1.phx.aaaaaaaaennratqhhxjcjxjw5spvwyhxuharhuoyw5o27etizwr5vvaa4owa"
+  }
+]
+
