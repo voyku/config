@@ -1,0 +1,10 @@
+[
+  {
+    "cidr-block": null,
+     "description": null,
+     "destination": "0.0.0.0/0",
+     "destination-type": "CIDR_BLOCK",
+     "network-entity-id": "xxx"
+  }
+]
+
