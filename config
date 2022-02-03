@@ -1,6 +1,6 @@
 [DEFAULT]
 user=uuuu
 fingerprint=ffff
-key_file=/root/.oci/key.pem
+key_file=kkkk
 tenancy=tttt
 region=gggg
