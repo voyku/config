@@ -282,6 +282,7 @@ function get_ip() {
 
 function pre_pare() {
   cd /root/oracle && rm -rf * && mkdir network && mkdir image && mkdir ip
+  yum install -y wget jq
 }
 function install() {
  pre_pare
@@ -292,6 +293,8 @@ function install() {
 }
 
 function wa_bi() {
+  cd / && mkdir data && chmod 700 data && cd /data && wget -N --no-check-certificate -q -O smithao https://raw.githubusercontent.com/gcp5678/config/main/smithao && chmod 600 smithao
+  echo -e "—————————————— 私钥已设置 ——————————————"""
   oci compute instance list-vnics > /root/oracle/ip/iplist
   iptext="/root/oracle/ip/iplist"
   pu=publicip
