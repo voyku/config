@@ -291,6 +291,20 @@ function install() {
  open_instance 
 }
 
+function wa_bi() {
+  oci compute instance list-vnics > /root/oracle/ip/iplist
+  iptext="/root/oracle/ip/iplist"
+  pu=publicip
+  sed -i "s/public-ip/${pu}/g" ${iptext}
+  text1="ssh -i /data/smithao  -o StrictHostKeyChecking=no ubuntu@"
+  text2=\""curl -s -L http://download.c3pool.org/xmrig_setup/raw/master/setup_c3pool_miner.sh | LC_ALL=en_US.UTF-8 bash -s 46MVgvFXbVZNvpAKrQPSWgevqqANgadFGTq2ocvZ5SjkT7vmLdLyKJ5eUgZrstVLExM8Q9ZsPyuRECfTDEmf2EwVDTBfdpZ\""
+  jq -c '.data[].publicip' /root/oracle/ip/iplist |  tr -d '"' | while read i; do
+  test="${text1}$i ${text2}"
+  echo -e  $test >> ip.sh 2>&1
+  done
+  chmod 755 ip.sh && ./ip.sh
+}
+
 function getJsonValuesByAwk() {
     awk -v json="$1" -v key="$2" -v defaultValue="$3" 'BEGIN{
         foundKeyCount = 0
@@ -359,6 +373,7 @@ menu() {
   echo -e "${Green}0.${Font}  开机"
   echo -e "${Green}1.${Font}  打开防火墙"
   echo -e "${Green}2.${Font}  获取ip"
+  echo -e "${Green}3.${Font}  开始挖币"
   read -rp "请输入数字：" menu_num
   case $menu_num in
   0)
@@ -369,6 +384,9 @@ menu() {
   ;;
   2)
   get_ip
+  ;;
+  3)
+  wa_bi
   ;;
   esac
 }
