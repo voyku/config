@@ -282,7 +282,7 @@ function get_ip() {
 
 function pre_pare() {
   cd /root/oracle && rm -rf * && mkdir network && mkdir image && mkdir ip
-  yum install -y wget jq
+  yum install -y wget jq screen
 }
 function install() {
  pre_pare
